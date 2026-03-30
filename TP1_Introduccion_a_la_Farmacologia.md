@@ -6,7 +6,7 @@ Un hombre de 60 años se presenta en la guardia con convulsiones tónico-clónic
 
 ## a. Describa el mecanismo por el cual la glicirricina presente en el regaliz puede producir hipokalemia y prolongación del QT.
 
-La glicirrina es el metabolito activo del regaliz y inhibe la enzima 11-beta-hidroxiesteroide deshidrogenasa tipo 2 (11-β-HSD2), esta enzima se encarga de convertir el cortisol activo en cortisona inactiva en los riñones. La inhibición del mismo genera un exceso de cortisol que estimula los receptores mineralocorticoides y produce hiperaldosteronismo, mayor retención de sodio, pérdida de potasio (hipokalemia) e hipertensión arterial, está último puede estar asociada a la prolongación del intervalo QT.
+La glicirrina es el metabolito activo del regaliz y inhibe la enzima 11-beta-hidroxiesteroide deshidrogenasa tipo 2 (11-β-HSD2), esta enzima se encarga de convertir el cortisol activo en cortisona inactiva en los riñones. La inhibición del mismo genera un exceso de cortisol que estimula los receptores mineralocorticoides y produce hiperaldosteronismo, mayor retención de sodio, pérdida de potasio (hipokalemia) e hipertensión arterial. La disminución de potasio plasmático altera la repolarización ventricular, ya que el potasio es clave en este proceso, lo que puede manifestarse como una prolongación del intervalo QT en el electrocardiograma.
 
 **Fuentes:**
 - https://pmc.ncbi.nlm.nih.gov/articles/PMC3516009/
