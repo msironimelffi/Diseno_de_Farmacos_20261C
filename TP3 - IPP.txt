@@ -1,0 +1,151 @@
+# TP3 - Interacción Proteína Proteína
+
+
+###### Josefina Viviana Peréz Gamberale, María Florencia Sironi Melffi y Nazarena Belén Derecho Castiñeiras
+
+
+## Ejercicio 1: Construcción y Visualización de la Red PPI
+
+
+*Accedé a STRING-db.org. Ingresá a la lista de genes dada:*
+   * CXCL8
+   * TLR4
+   * STAT3
+   * MAPK14
+   * RELA
+
+
+*proporcionada y configurá organismo como Homo sapiens.*
+
+
+1. *Describí la topología de la red: ¿es densa o dispersa? Calculá el "degree"o cantidad de conexiones en la red según el score actual.*
+
+
+![Figura 1](red_ppi.png) 
+
+
+*Figura 1: Red de interacción entre CXCL8, TLR4, STAT3, MAPK14 y RELA obtenida mediante STRING.*
+
+
+La red presenta una **topología densa**, ya que las 5 proteínas analizadas se encuentran **altamente conectadas entre sí**. Según el score de confianza actual, cada proteína presenta conexión con las otras 4 proteínas de la red, por lo tanto, el **degree de cada nodo es 4** con un **total de conexiones de 10 aristas**.
+
+
+<br>
+
+
+2. *¿Cuántas proteínas "Hub" identificás?*
+
+
+Respecto a las proteínas hub, **no se identifica un único nodo central** dominante, ya que todas las proteínas presentan el mismo grado de conexión. Por lo tanto, la red no muestra un hub claramente diferenciado, sino una conectividad distribuida entre todos los nodos.
+
+
+<br>
+
+
+3. *¿Cómo afecta el ajuste de confianza a la red? ¿Por qué es importante este filtro?*
+
+
+El ajuste de confianza modifica la cantidad de interacciones visibles en la red. Cuando aumenta el umbral de confianza, STRING muestra únicamente aquellas interacciones con mayor evidencia experimental, bibliográfica o de bases de datos curadas. En cambio, si se reduce el umbral, aparecen más conexiones, pero con menor respaldo. Este filtro es importante porque permite **priorizar interacciones más confiables** y **evitar interpretar relaciones débiles**.
+
+
+<br>
+
+
+## Ejercicio 2: Análisis de Enriquecimiento Funcional
+
+
+1. *Explorar pestaña "Functional Enrichment" y analizar resultados en KEGG, Process y Function Listá las 3 vías KEGG más enriquecidas (nombre y valor FDR)*
+
+
+* hsa05161 - Hepatitis B  →  FDR: 1.22e-08
+* hsa05133 - Pertussis  →  FDR: 1.81e-07
+* hsa05235 - PD-L1 expression and PD-1 checkpoint pathway in cancer  → FDR: 2.38e-07
+
+
+
+
+2. *¿Qué procesos biológicos aparecen? ¿Coinciden con contexto de cáncer?*
+
+
+Los procesos biológicos más relevantes identificados son la **respuesta celular a componentes bacterianos, la regulación positiva de la producción de interleucina-12 y la regulación de la producción de citoquinas en la respuesta inflamatoria**. Estos procesos reflejan la activación de la inmunidad innata y la señalización inflamatoria mediada por citoquinas, lo cual es consistente con la función de los genes analizados.
+
+
+Estos resultados coinciden con el contexto de cáncer, ya que la inflamación crónica y la señalización por citoquinas desempeñan un papel clave en el desarrollo tumoral. La activación sostenida de estas vías puede favorecer la proliferación celular, la supervivencia de células tumorales y la evasión del sistema inmune. Además, proteínas como **TLR4, STAT3 y RELA participan en la regulación de la expresión génica inflamatoria**, contribuyendo a la formación de un microambiente tumoral que promueve la progresión del cáncer.
+
+
+<br>
+
+
+3. *Se llama targets combinatorios si dos o más proteínas están en la misma vía y son mediadores clave ¿Existen en la red proteínas que puedan ser targets combinatorios para una terapia más efectiva?*
+
+
+A partir del diagrama de la red del ítem 1, donde se observa que las proteínas TLR4, MAPK14, RELA, STAT3 y CXCL8 presentan una alta conectividad entre sí, formando un **cluster compacto** en el cual prácticamente todos los nodos están interconectados mediante múltiples interacciones. La presencia de numerosas aristas entre estas proteínas indica que **comparten funciones biológicas y participan en las mismas vías de señalización.**
+
+
+En particular, se destaca que **TLR4, MAPK14 y RELA están fuertemente conectadas entre sí**, lo que sugiere que forman parte de una **misma cascada funcional**. TLR4 actúa como receptor de membrana que inicia la señal, MAPK14 participa en la transducción intracelular y RELA (NF-κB) regula la expresión génica. A su vez, **STAT3 y RELA** también muestran una fuerte interacción dentro de la red, indicando que ambos factores de transcripción **cooperan en la regulación de genes asociados a inflamación y proliferación celular**. Finalmente, CXCL8 aparece conectado con estos nodos como un efector downstream, reflejando el resultado de la activación de estas vías.
+
+
+La alta densidad de conexiones y la interrelación entre todos los nodos permite inferir que estas proteínas **no actúan de manera aislada**, sino como parte de una misma red de señalización inflamatoria. Por lo tanto, pueden considerarse **targets combinatorios**, ya que la inhibición simultánea de varios de estos componentes permitiría intervenir en distintos niveles de la vía, aumentando la eficacia terapéutica y reduciendo posibles mecanismos de compensación celular, especialmente en enfermedades complejas como el cáncer.
+
+
+<br>
+
+
+4. *Según GO Molecular Function ¿hay actividades o dominios específicos que sean aprovechables para diseñar inhibidores o activadores?*
+
+
+Las actividades o dominios que se destacaron fueron:
+* **signaling receptor binding** evidencia la capacidad de proteínas de la red de interactuar con receptores y disparar cascadas de señalización. Esto es relevante para el diseño de fármacos que modulen la activación del receptor (agonistas o antagonistas), afectando etapas tempranas de la vía.
+* **cytokine activity y cytokine receptor binding** reflejan la presencia de interacciones ligando–receptor, un blanco clásico en farmacología. En este contexto, CXCL8 actúa como citoquina capaz de unirse a receptores específicos (como CXCR1 y CXCR2), promoviendo la activación de respuestas inflamatorias. Estas interacciones pueden ser moduladas mediante anticuerpos monoclonales, antagonistas de receptores o inhibidores de la unión ligando–receptor, lo que permite reducir la señalización inflamatoria.
+
+
+<br>
+
+
+## Ejercicio 3: Identificación y Priorización de Dianas
+
+
+1. *Completar tabla de evaluación para 2 candidatos:*
+
+
+| Criterio      | TLR4      |STAT3       |
+| ------------- |:---------:|:----------:|
+| Posición en red |Alto grado de conexión, se vincula con todas las proteínas de la red | Alto grado de conexión, se vincula con todas las proteínas de la red |
+| Evidencia en enfermedad | Asociado a procesos inflamatorios e inmunes. Asociado a enfermedades inflamatorias crónicas, sepsis, enfermedades cardiovasculares y metabólicas.| Asociado a proliferación celular, inflamación y supervivencia celular. Activa en muchos tipos de cáncer.|
+| Drogabilidad | Es alta, al ser un receptor del sistema inmune es responsable de reconocer patrones asociados a patógenos.|Diana atractiva pero desafiante, como trabaja como factor de transcripción funciona principalmente dentro del núcleo, lugar difícil de alcanzar por los fármacos.|
+|Participación en vías clave|Receptor transmembrana que reconoce PAMPs: MyD88 - TRIF | Interviene en procesos clave como la proliferación celular, la supervivencia y la apoptosis: Via JAK-STAT |
+
+
+<br>
+
+
+2. *Justifique la elección de sus 2 candidatos*
+
+
+Se eligieron estas dianas porque ambas proteínas ocupan una **posición central en la red** y **participan en vías biológicas relevantes**.
+
+
+Por un lado, **TLR4** actúa como un receptor clave de la inmunidad innata, localizado en la membrana celular, encargado de reconocer señales de peligro e iniciar la respuesta inflamatoria. Su activación desencadena múltiples cascadas de señalización, por tanto, desde el punto de vista farmacologíco lo convierte en un blanco atractivo para antagonistas o moduladores del receptor.
+
+
+Por otro lado, **STAT3** es un factor de transcripción que regula la expresión de genes involucrados en proliferación celular, supervivencia y evasión inmune. Su activación sostenida ha sido ampliamente asociada a distintos tipos de cáncer, lo que lo posiciona como un target downstream crítico. La inhibición de STAT3 permite intervenir en etapas tardías de la señalización, afectando directamente la expresión génica patológica.
+
+
+En conclusión, la elección de dichas dianas permite abordar la vía en niveles complementarios: **uno temprano** (recepción de la señal) y **otro tardío** (regulación de la respuesta génica). Esta combinación resulta particularmente relevante para el **diseño de estrategias terapéuticas más efectivas.**
+
+
+<br>
+
+
+3. *Seleccione UNO como diana principal y explique su decisión*
+
+
+Se eligió TLR4 como diana principal debido a su **posición temprana** en la cascada de señalización inflamatoria y su **alto impacto sobre la red.** TLR4 actúa como receptor de membrana que reconoce señales de peligro y activa vías clave como NF-κB y MAPK, lo que conduce a la producción de citoquinas como CXCL8 y la activación de factores como STAT3.
+
+
+Debido a su **rol upstream**, su modulación permite bloquear la señal desde el inicio, afectando múltiples procesos downstream. Además, su localización en la superficie celular lo convierte en un target accesible y farmacológicamente viable, ya que puede ser inhibido mediante antagonistas o anticuerpos.
+
+
+En conjunto, TLR4 representa una diana estratégica dada **su inhibición temprana** que permite **prevenir la amplificación de la señal**, lo que resulta más eficiente que intervenir en etapas tardías de la vía.
+
+
