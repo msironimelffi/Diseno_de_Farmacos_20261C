@@ -21,7 +21,7 @@
 1. *Describí la topología de la red: ¿es densa o dispersa? Calculá el "degree"o cantidad de conexiones en la red según el score actual.*
 
 
-![image.png](https://postimg.cc/ZWtxYX0y)
+![Figura 1](Imagenes/red_ppi.png)
 
 
 *Figura 1: Red de interacción entre CXCL8, TLR4, STAT3, MAPK14 y RELA obtenida mediante STRING.*
